@@ -35,7 +35,8 @@
         
         %>
         
-        <table border="1">
+        <table border="1"  class="tablaDeResultados">
+            
             <thead>
                 <tr>
                     <th>Codigo</th>
@@ -43,20 +44,25 @@
                     <th>Marca</th>
                     <th>Anio</th>
                     <th>Detalles</th>
-                    <th>Ultimo Duenio</th>
+                    <th>Run del ultimo duenio</th>
+                    <th>Nombre Completo del ultimo duenio</th>
+                    <th>Telefono del ultimo duenio</th>
+                    
                 </tr>
             </thead>
             <tbody>
                 
                 <%for(Automovil a: lista){ %>
-                
+            </span
                 <tr>
                     <td><%= a.getId()%></td>
                     <td><%= a.getPatente()%></td>
                     <td><%= a.getMarca()%></td>
                     <td><%= a.getAnio()%></td>
-                    <td><%= a.getDetalles()%></td>
-                    <td><%= a.getUd().getNombreCompleto()%></td>
+                    <td style="color:red; font-weight: bold"><%= a.getDetalles()%></td>
+                    <td><%= a.getUd().getRun()%></td>
+                    <td style="color:red; font-weight: bold"><%= a.getUd().getNombreCompleto()%></td>
+                    <td style="color:red; font-weight: bold"><%= a.getUd().getTelefono()%></td>
                   
                 </tr>
                 <%}

@@ -120,5 +120,17 @@ public class DAO_Automovil extends Conexion implements DAO <Automovil> {
      public void borrarAutomovil(int id) throws SQLException {
         ejecutar("DELETE FROM automovil WHERE id="+id+"; ");
     }
+     
+    public int getCantAutos() throws SQLException{
+        int cant=0;
+        
+        ResultSet rs=ejecutar("SELECT COUNT(*) FROM automovil;");
+        if(rs.next()){
+            cant=rs.getInt(1);
+        }
+        
+        return cant;
+    } 
     
+     
 }
