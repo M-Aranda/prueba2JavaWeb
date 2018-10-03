@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Error
-    Created on : Oct 2, 2018, 10:33:15 PM
-    Author     : Marce
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : buscarAuto
-    Created on : Oct 2, 2018, 9:09:55 PM
-    Author     : Marce
---%>
+
 
 <%@page import="model.Automovil"%>
 <%@page import="java.util.List"%>
@@ -14,6 +10,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Busqueda de auto</title>
         <link rel="stylesheet" href="style.css" type="text/css">
+        
+        <style>
+            
+        </style>
     </head>
     <body>
         
@@ -31,7 +31,7 @@
         
         if(request.getSession().getAttribute("resBusqueda")!=null){
             List<Automovil> lista= (List<Automovil>)request.getSession().getAttribute("resBusqueda");
-        
+            //el atributo se llama resBusqueda, no lista
         
         %>
         
@@ -59,10 +59,10 @@
                     <td><%= a.getPatente()%></td>
                     <td><%= a.getMarca()%></td>
                     <td><%= a.getAnio()%></td>
-                    <td style="color:red; font-weight: bold"><%= a.getDetalles()%></td>
+                    <td class="resalto"><%= a.getDetalles()%></td>
                     <td><%= a.getUd().getRun()%></td>
-                    <td style="color:red; font-weight: bold"><%= a.getUd().getNombreCompleto()%></td>
-                    <td style="color:red; font-weight: bold"><%= a.getUd().getTelefono()%></td>
+                    <td class="resalto"><%= a.getUd().getNombreCompleto()%></td>
+                    <td class="resalto"><%= a.getUd().getTelefono()%></td>
                   
                 </tr>
                 <%}
@@ -71,12 +71,10 @@
                 
         <% 
             
-        if(request.getSession().getAttribute("lista")!=null){
-            request.getSession().removeAttribute("lista");//esto no funciona asi que... siguiente linea
-            da.read("");//mentira tampoco funciona
-            /*
-            Como le hago para quitar un atributo de una sesion para que la tabla no se quede con lo mismo?
-            */
+        if(request.getSession().getAttribute("resBusqueda")!=null){
+            request.getSession().removeAttribute("resBusqueda");//quita el atributo
+            //da.read("");
+           
         }
         
      

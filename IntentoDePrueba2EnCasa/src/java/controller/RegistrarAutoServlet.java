@@ -35,7 +35,8 @@ public class RegistrarAutoServlet extends HttpServlet {
             
             UltimoDuenio posibleDuenioExistente=dud.findByID(elUltimo.getRun());
             if(posibleDuenioExistente==null){//si no existe se crea
-                dud.create(elUltimo);
+               dud.create(elUltimo);
+                 
             }else {
                 dud.update(elUltimo);// si existe se actualiza
             }

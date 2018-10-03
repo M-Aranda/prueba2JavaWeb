@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Marce
  */
-public class DAO_UltimoDuenio extends Conexion implements DAO<UltimoDuenio>{
+public class DAO_UltimoDuenio extends Conexion implements DAO<UltimoDuenio> {
 
     public DAO_UltimoDuenio() throws ClassNotFoundException, SQLException {
         super("registroAutomovilesUsadosIntentoEnCasa");
@@ -22,41 +22,41 @@ public class DAO_UltimoDuenio extends Conexion implements DAO<UltimoDuenio>{
 
     @Override
     public void create(UltimoDuenio ob) throws SQLException {
-        ejecutar("INSERT INTO ultimoDuenio VALUES ('"+ob.getRun()+"', '"+ob.getNombreCompleto()+"'"
-                + ", '"+ob.getTelefono()+"');");
-        
+        ejecutar("INSERT INTO ultimoDuenio VALUES ('" + ob.getRun() + "', '" + ob.getNombreCompleto() + "'"
+                + ", '" + ob.getTelefono() + "');");
+
     }
 
     @Override
     public List<UltimoDuenio> read() throws SQLException {
-        List<UltimoDuenio> lista= new ArrayList<UltimoDuenio>();
-        
-        ResultSet rs=ejecutar("SELECT * FROM ultimoDuenio;");
-        
+        List<UltimoDuenio> lista = new ArrayList<UltimoDuenio>();
+
+        ResultSet rs = ejecutar("SELECT * FROM ultimoDuenio;");
+
         UltimoDuenio u;
-        while(rs.next()){
-        u= new UltimoDuenio();
-        
-        u.setRun(rs.getString(1));
-        u.setNombreCompleto(rs.getString(2));
-        u.setTelefono(rs.getString(3));
-            
+        while (rs.next()) {
+            u = new UltimoDuenio();
+
+            u.setRun(rs.getString(1));
+            u.setNombreCompleto(rs.getString(2));
+            u.setTelefono(rs.getString(3));
+
             lista.add(u);
         }
-        
+
         return lista;
     }
 
     @Override
     public void update(UltimoDuenio ob) throws SQLException {
-        ejecutar("UPDATE  ultimoDuenio SET nombreCompleto='"+ob.getNombreCompleto()+"'"
-                + ", telefono='"+ob.getTelefono()+"' WHERE run='"+ob.getRun()+"' ;");
+        ejecutar("UPDATE  ultimoDuenio SET nombreCompleto='" + ob.getNombreCompleto() + "'"
+                + ", telefono='" + ob.getTelefono() + "' WHERE run='" + ob.getRun() + "' ;");
 
     }
 
     @Override
     public void delete(String run) throws SQLException {
-        ejecutar("DELETE FROM ultimoDuenio WHERE run= "+run+";");
+        ejecutar("DELETE FROM ultimoDuenio WHERE run= '" + run + "';");
     }
 
     @Override
@@ -66,18 +66,18 @@ public class DAO_UltimoDuenio extends Conexion implements DAO<UltimoDuenio>{
 
     @Override
     public UltimoDuenio findByID(String id) throws SQLException {
-        ResultSet rs=ejecutar("SELECT * FROM ultimoDuenio WHERE run='"+id+"';");
-        
-        UltimoDuenio u=new UltimoDuenio();
-        if(rs.next()){
-        u.setRun(rs.getString(1));
-        u.setNombreCompleto(rs.getString(2));
-        u.setTelefono(rs.getString(3));
-            
-            
+        ResultSet rs = ejecutar("SELECT * FROM ultimoDuenio WHERE run='" + id + "';");
+
+        UltimoDuenio u = null; //esto deja el objeto nulo
+        if (rs.next()) {
+            u=new UltimoDuenio();//si entra al if, SOLO AHI, deja de ser nulo
+            u.setRun(rs.getString(1));
+            u.setNombreCompleto(rs.getString(2));
+            u.setTelefono(rs.getString(3));
+
         }
 
         return u;
     }
-    
+
 }

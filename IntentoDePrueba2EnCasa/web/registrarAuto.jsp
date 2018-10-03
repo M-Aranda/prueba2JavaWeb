@@ -1,8 +1,4 @@
-<%-- 
-    Document   : registrarAuto
-    Created on : Oct 2, 2018, 9:09:40 PM
-    Author     : Marce
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

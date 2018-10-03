@@ -1,8 +1,4 @@
-<%-- 
-    Document   : registroExitoso
-    Created on : Oct 2, 2018, 9:30:22 PM
-    Author     : Marce
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

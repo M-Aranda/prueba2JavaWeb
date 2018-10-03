@@ -1,8 +1,4 @@
-<%-- 
-    Document   : catalogo
-    Created on : Oct 2, 2018, 9:10:10 PM
-    Author     : Marce
---%>
+
 
 
 <%@page import="model.Automovil"%>

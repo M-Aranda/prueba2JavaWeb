@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Index
-    Created on : Oct 2, 2018, 8:12:58 PM
-    Author     : Marce
---%>
+
 
 <%@page import="model.DAO_Automovil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
