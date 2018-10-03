@@ -23,6 +23,6 @@
         <br>
         <a href="catalogo.jsp">Catalogo</a>
         <br>
-        
+
     </body>
 </html>

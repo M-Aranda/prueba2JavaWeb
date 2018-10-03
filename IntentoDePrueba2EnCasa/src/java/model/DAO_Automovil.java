@@ -44,7 +44,7 @@ public class DAO_Automovil extends Conexion implements DAO <Automovil> {
             a.setDetalles(rs.getString(5));
             
             String runUltimoDuenio=rs.getString(6);
-            ResultSet buscaDuenios=ejecutar("SELECT * FROM ultimoDuenio WHERE"
+            ResultSet buscaDuenios=ejecutar("SELECT * FROM ultimoDuenio WHERE "
                     + "run= '"+runUltimoDuenio+"'; ");
             
             UltimoDuenio ultimo= new UltimoDuenio();;
@@ -77,7 +77,39 @@ public class DAO_Automovil extends Conexion implements DAO <Automovil> {
 
     @Override
     public List<Automovil> read(String txt) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Automovil> lista= new ArrayList<Automovil>();
+        
+        ResultSet rs=ejecutar("SELECT * FROM automovil WHERE patente = '"+txt+"';");
+        
+        Automovil a;
+        while(rs.next()){
+            a=new Automovil();
+            
+            a.setId(rs.getInt(1));
+            a.setPatente(rs.getString(2));
+            a.setMarca(rs.getString(3));
+            a.setAnio(rs.getInt(4));
+            a.setDetalles(rs.getString(5));
+            
+            String runUltimoDuenio=rs.getString(6);
+            ResultSet buscaDuenios=ejecutar("SELECT * FROM ultimoDuenio WHERE "
+                    + "run= '"+runUltimoDuenio+"'; ");
+            
+            UltimoDuenio ultimo= new UltimoDuenio();;
+            if(buscaDuenios.next()){
+                ultimo.setRun(buscaDuenios.getString(1));
+                ultimo.setNombreCompleto(buscaDuenios.getString(2));
+                ultimo.setTelefono(buscaDuenios.getString(3));               
+            }
+            
+            a.setUd(ultimo);
+            
+            
+            
+            lista.add(a);
+        }
+        
+        return lista;
     }
 
     @Override

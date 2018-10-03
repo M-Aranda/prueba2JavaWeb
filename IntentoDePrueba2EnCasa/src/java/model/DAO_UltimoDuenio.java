@@ -66,7 +66,18 @@ public class DAO_UltimoDuenio extends Conexion implements DAO<UltimoDuenio>{
 
     @Override
     public UltimoDuenio findByID(String id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ResultSet rs=ejecutar("SELECT * FROM ultimoDuenio WHERE run='"+id+"';");
+        
+        UltimoDuenio u=new UltimoDuenio();
+        if(rs.next()){
+        u.setRun(rs.getString(1));
+        u.setNombreCompleto(rs.getString(2));
+        u.setTelefono(rs.getString(3));
+            
+            
+        }
+
+        return u;
     }
     
 }
